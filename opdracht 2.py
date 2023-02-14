@@ -25,12 +25,15 @@ def list_to_dict():
     for woord in wordlist:
         nieuwe_ID =("W"+str(wordlist.index(woord)+1))
         worddict.update({nieuwe_ID:woord})
+    print(worddict)
 def versleutel_dict():
     for woord in worddict.values():
-          versleuteld_woord = ""
-          for letter in woord:
-                versleuteld_woord += chr(ord(letter)+4)
-          worddictversleuteld.update({woord:versleuteld_woord})
+        versleuteld_woord=""
+        for letter in woord:
+            versleuteld_woord += chr(ord(letter)+1)
+        worddictversleuteld.update({woord:versleuteld_woord})
+        print(worddictversleuteld)
+
 
 
 ############
@@ -41,15 +44,18 @@ keuze = input("Geef je keuze in: ")
 while not keuze == "stop":
     if keuze == "1":
         Voeg_woord_toe()
+        keuze = input("Geef je keuze in: ")
     elif keuze == "2":
         verwijder_woord()
+        keuze = input("Geef je keuze in: ")
     elif keuze == "3":
-        print(wordlist)
-    elif keuze == "4":
         list_to_dict()
+        keuze = input("Geef je keuze in: ")
+    elif keuze == "4":
         versleutel_dict()
+
     else:
         print("Foute invoer")
-    toon_menu()
-    keuze = input("Geef je keuze in: ")
+        toon_menu()
+        keuze = input("Geef je keuze in: ")
 
